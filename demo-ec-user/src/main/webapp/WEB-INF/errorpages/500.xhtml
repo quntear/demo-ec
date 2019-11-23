@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+	
+<ui:composition template="/WEB-INF/templates/layout.xhtml">
+	<ui:param name="title" value="Internal Server Error" />
+	<ui:define name="content">
+		<dl>
+			<dt>Request URI</dt>
+			<dd>#{requestScope['javax.servlet.error.request_uri']}</dd>
+
+			<dt>Exception Type</dt>
+			<dd>#{requestScope['javax.servlet.error.exception']['class']}</dd>
+
+			<dt>Exception message</dt>
+			<dd>#{requestScope['javax.servlet.error.exception'].message}</dd>
+
+			<dt>Stack trace</dt>
+			<dd>
+				<pre>#{facesContext['javax.servlet.error.exception'].printStackTrace(facesContext.externalContext.response.writer)}</pre>
+			</dd>
+		</dl>
+	</ui:define>
+</ui:composition>
+</html>

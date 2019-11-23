@@ -1,0 +1,51 @@
+<ui:composition xmlns:="http://www.w3.org/1999/xhtml"
+	xmlns:jsf="http://xmlns.jcp.org/jsf"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	template="/WEB-INF/templates/layout.xhtml">
+	<ui:param name="title" value="สมัครใหม่" />
+
+<ui:define name="content">
+	<div class="row">
+		<div class="col-md-12">
+			<h4 class="mb-3">สมัครใหม่</h4>
+			<h:form prependId="false" styleClass="needs-validation">
+				<div class="row">
+					<div class="col-md-6 mb-3">
+						<h:outputLabel for="firstName" value="First name" />
+						<h:inputText id="firstName" value="#{register.firstName}" styleClass="form-control" />
+						<div class="invalid-feedback">Valid first name is required.</div>
+					</div>
+					<div class="col-md-6 mb-3">
+						<h:outputLabel for="lastName" value="Last name" />
+						<h:inputText id="lastName" value="#{register.lastName}" styleClass="form-control" />
+						<div class="invalid-feedback">Valid last name is required.</div>
+					</div>
+				</div>
+
+				<div class="mb-3">
+					<h:outputLabel for="email" value="Email" />
+					<input jsf:value="#{register.email}" type="email" 
+						class="form-control" id="email" placeholder="you@example.com"/>
+					<div class="invalid-feedback">Please enter a valid email address for shipping updates.</div>
+				</div>
+
+				<div class="mb-3">
+					<label for="password">Password</label> 
+					<h:inputSecret value="#{register.password}" id="password" styleClass="form-control" />
+					<div class="invalid-feedback">Please enter your password.</div>
+				</div>
+				
+				<div class="mb-3">
+					<label for="confirmPassword">Confirm Password</label> 
+					<h:inputSecret value="#{register.confirmPassword}" id="confirmPassword" styleClass="form-control" />
+					<div class="invalid-feedback">Please enter your confirm password.</div>
+				</div>
+				<hr class="mb-4"/>
+				<button class="btn btn-primary btn-lg btn-block" type="submit">สมัครใหม่</button>
+			</h:form>
+		</div>
+	</div>
+</ui:define>
+</ui:composition>
