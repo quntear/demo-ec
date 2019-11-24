@@ -2,18 +2,24 @@ package quntear.dec.boundry;
 
 import java.io.Serializable;
 
-import javax.enterprise.context.RequestScoped;
+import javax.faces.view.ViewScoped;
 import javax.inject.Named;
+import javax.validation.constraints.Email;
 
 @Named
-@RequestScoped
+@ViewScoped
 public class Register implements Serializable {
 	private static final long serialVersionUID = -3024883429735722538L;
-	
+
 	private String firstName;
+	
 	private String lastName;
+	
+	@Email
 	private String email;
+	
 	private String password;
+	
 	private String confirmPassword;
 
 	public String getFirstName() {
@@ -50,6 +56,10 @@ public class Register implements Serializable {
 
 	public String getConfirmPassword() {
 		return confirmPassword;
+	}
+
+	public void setConfirmPassword(String confirmPassword) {
+		this.confirmPassword = confirmPassword;
 	}
 
 	public void submit() {
