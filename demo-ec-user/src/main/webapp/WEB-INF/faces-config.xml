@@ -7,4 +7,8 @@
 	<factory>
 		<exception-handler-factory>quntear.dec.DefaultExceptionHandler$Factory</exception-handler-factory>
 	</factory>
+	
+	<application>
+		<message-bundle>view.i18n.messages</message-bundle>
+	</application>
 </faces-config>
