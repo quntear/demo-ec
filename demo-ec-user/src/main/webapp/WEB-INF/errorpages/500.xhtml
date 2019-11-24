@@ -23,7 +23,7 @@
 					<pre>#{
 						facesContext.externalContext.response.writer.flush()
 					}#{
-						facesContext['javax.servlet.error.exception'].printStackTrace(facesContext.externalContext.response.writer)
+						requestScope['javax.servlet.error.exception'].printStackTrace(facesContext.externalContext.response.writer)
 					}</pre></dd>
 			</c:if>
 		</dl>

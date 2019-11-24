@@ -26,9 +26,13 @@ public class DefaultExceptionHandler extends ExceptionHandlerWrapper {
 
 	@Override
 	public void handle() throws FacesException {
+		handleException(FacesContext.getCurrentInstance());
+		getWrapped().handle();
+	}
+
+	private void handleException(FacesContext context) {
 		Iterator<ExceptionQueuedEvent> unhandledEvents = getUnhandledExceptionQueuedEvents().iterator();
 		
-		FacesContext context = FacesContext.getCurrentInstance();
 		if (context == null || context.getExternalContext().isResponseCommitted() || !unhandledEvents.hasNext()) {
 			return;
 		}
@@ -63,6 +67,8 @@ public class DefaultExceptionHandler extends ExceptionHandlerWrapper {
 		} finally {
 			requestScope.remove(RequestDispatcher.ERROR_EXCEPTION);
 		}
+		
+		unhandledEvents.remove();
 		
 		while (unhandledEvents.hasNext()) {
 			unhandledEvents.next();
