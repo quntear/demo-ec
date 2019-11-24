@@ -1,5 +1,5 @@
 <ui:composition xmlns:="http://www.w3.org/1999/xhtml"
-	xmlns:jsf="http://xmlns.jcp.org/jsf"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
@@ -10,42 +10,51 @@
 	<div class="row">
 		<div class="col-md-12">
 			<h4 class="mb-3">สมัครใหม่</h4>
-			<h:form prependId="false" styleClass="needs-validation">
+			<h:form id="register" prependId="false" a:novalidate="novalidate">
 				<div class="row">
 					<div class="col-md-6 mb-3">
 						<h:outputLabel for="firstName" value="First name" />
-						<h:inputText id="firstName" value="#{register.firstName}" styleClass="form-control" />
-						<div class="invalid-feedback">Valid first name is required.</div>
+						<h:inputText id="firstName" value="#{register.firstName}" required="true"
+							a:class="form-control #{facesContext.postback ? (!component.valid ? 'is-invalid' : 'is-valid') : ''}"/>
+						<div class="invalid-feedback"><h:message for="firstName"/></div>
 					</div>
 					<div class="col-md-6 mb-3">
 						<h:outputLabel for="lastName" value="Last name" />
-						<h:inputText id="lastName" value="#{register.lastName}" styleClass="form-control" />
-						<div class="invalid-feedback">Valid last name is required.</div>
+						<h:inputText id="lastName" value="#{register.lastName}" a:class="form-control"/>
 					</div>
 				</div>
 
 				<div class="mb-3">
 					<h:outputLabel for="email" value="Email" />
-					<input jsf:value="#{register.email}" type="email" 
-						class="form-control" id="email" placeholder="you@example.com"/>
-					<div class="invalid-feedback">Please enter a valid email address for shipping updates.</div>
+					<h:inputText a:type="email" id="email" value="#{register.email}" required="true"
+						a:class="form-control #{facesContext.postback ? (!component.valid ? 'is-invalid' : 'is-valid') : ''}"
+						a:placeholder="you@example.com" />
+					<div class="invalid-feedback"><h:message for="email"/></div>
 				</div>
 
 				<div class="mb-3">
 					<label for="password">Password</label> 
-					<h:inputSecret value="#{register.password}" id="password" styleClass="form-control" />
-					<div class="invalid-feedback">Please enter your password.</div>
+					<h:inputSecret value="#{register.password}" id="password" required="true"
+						a:class="form-control #{facesContext.postback ? (!component.valid ? 'is-invalid' : 'is-valid') : ''}"/>
+					<div class="invalid-feedback"><h:message for="password"/></div>
 				</div>
 				
 				<div class="mb-3">
 					<label for="confirmPassword">Confirm Password</label> 
-					<h:inputSecret value="#{register.confirmPassword}" id="confirmPassword" styleClass="form-control" />
-					<div class="invalid-feedback">Please enter your confirm password.</div>
+					<h:inputSecret value="#{register.confirmPassword}" id="confirmPassword" required="true"
+						a:class="form-control #{facesContext.postback ? (!component.valid ? 'is-invalid' : 'is-valid') : ''}"/>
+					<div class="invalid-feedback"><h:message for="confirmPassword"/></div>
 				</div>
 				<hr class="mb-4"/>
-				<h:commandButton action="#{register.submit}" value="สมัครใหม่" styleClass="btn btn-primary btn-lg btn-block" />
+				<h:commandButton action="#{register.submit}" value="สมัครใหม่" a:class="btn btn-primary btn-lg btn-block">
+					<f:ajax execute="@form" render="register"/>
+				</h:commandButton>
 			</h:form>
 		</div>
 	</div>
+</ui:define>
+
+<ui:define name="footer">
+	<h:outputScript name="webjars/bootstrap/4.3.1/js/bootstrap.min.js" />
 </ui:define>
 </ui:composition>
