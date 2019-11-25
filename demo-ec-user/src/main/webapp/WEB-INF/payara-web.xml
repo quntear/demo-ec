@@ -3,7 +3,6 @@
 <payara-web-app>
 	<resource-ref>
 		<res-ref-name>jsf/ProjectStage</res-ref-name>
-		<res-type>java.lang.String</res-type>
 		<jndi-name>dec/jsf/ProjectStage</jndi-name>
 	</resource-ref>
 </payara-web-app>
