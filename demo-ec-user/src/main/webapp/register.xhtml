@@ -1,9 +1,10 @@
-<ui:composition xmlns:="http://www.w3.org/1999/xhtml"
+<ui:composition template="/WEB-INF/templates/layout.xhtml" 
+	xmlns:="http://www.w3.org/1999/xhtml"
 	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-	template="/WEB-INF/templates/layout.xhtml">
+	xmlns:o="http://omnifaces.org/ui">
 	<ui:param name="title" value="สมัครใหม่" />
 
 <ui:define name="content">
@@ -31,19 +32,28 @@
 						a:placeholder="you@example.com" />
 					<div class="invalid-feedback"><h:message for="email" id="m_email"/></div>
 				</div>
+				
+				<o:validateMultiple id="passwordAndConfirmPassword" 
+					components="password confirmPassword" validator="#{twoObjectsEquals}" 
+					message="Your password and confirmation password do not match"/>
 
 				<div class="mb-3">
 					<label for="password">Password</label> 
 					<h:inputSecret value="#{register.password}" id="password" required="true"
 						a:class="form-control #{facesContext.postback ? (!component.valid ? 'is-invalid' : 'is-valid') : ''}"/>
-					<div class="invalid-feedback"><h:message for="password" id="m_password"/></div>
+					<div class="invalid-feedback">
+						<h:message for="password" id="m_password"/>
+						<h:message for="passwordAndConfirmPassword" id="m_passwordAndConfirmPassword" />
+					</div>
 				</div>
 				
 				<div class="mb-3">
 					<label for="confirmPassword">Confirm Password</label> 
 					<h:inputSecret value="#{register.confirmPassword}" id="confirmPassword" required="true"
 						a:class="form-control #{facesContext.postback ? (!component.valid ? 'is-invalid' : 'is-valid') : ''}"/>
-					<div class="invalid-feedback"><h:message for="confirmPassword" id="m_confirmPassword"/></div>
+					<div class="invalid-feedback">
+						<h:message for="confirmPassword" id="m_confirmPassword"/>
+					</div>
 				</div>
 				<hr class="mb-4"/>
 				<h:commandButton action="#{register.submit}" value="สมัครใหม่" a:class="btn btn-primary btn-lg btn-block">
@@ -52,9 +62,5 @@
 			</h:form>
 		</div>
 	</div>
-</ui:define>
-
-<ui:define name="footer">
-	<h:outputScript name="webjars/bootstrap/4.3.1/js/bootstrap.min.js" />
 </ui:define>
 </ui:composition>
