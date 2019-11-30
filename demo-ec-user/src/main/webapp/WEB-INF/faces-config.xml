@@ -10,6 +10,10 @@
 	
 	<application>
 		<message-bundle>view.i18n.messages</message-bundle>
+		<resource-bundle>
+			<base-name>view.i18n.text</base-name>
+			<var>text</var>
+		</resource-bundle>
 		
 		<!-- UnmappedResourceHandler must be the last of resource-handler -->
 		<resource-handler>org.omnifaces.resourcehandler.UnmappedResourceHandler</resource-handler>
