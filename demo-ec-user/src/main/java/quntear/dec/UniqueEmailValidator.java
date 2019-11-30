@@ -1,5 +1,8 @@
 package quntear.dec;
 
+import java.util.Locale;
+import java.util.ResourceBundle;
+
 import javax.faces.application.FacesMessage;
 import javax.faces.component.UIComponent;
 import javax.faces.component.UIInput;
@@ -25,8 +28,13 @@ public class UniqueEmailValidator implements Validator<String> {
 		
 		String oldValue = (String) ((UIInput) component).getValue();
 		if (!value.equals(oldValue) && !userService.exist(value)) {
-			throw new ValidatorException(new FacesMessage("Email already in use"));
+			throw new ValidatorException(new FacesMessage(getMessage(context, "email-already-in-use")));
 		}
+	}
+
+	private String getMessage(FacesContext context, String key) {
+		Locale locale = context.getViewRoot().getLocale();
+		return ResourceBundle.getBundle(context.getApplication().getMessageBundle(), locale).getString(key);
 	}
 
 }
