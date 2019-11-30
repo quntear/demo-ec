@@ -10,6 +10,7 @@
 	
 	<application>
 		<message-bundle>view.i18n.messages</message-bundle>
+		<resource-handler>org.omnifaces.resourcehandler.SourceMapResourceHandler</resource-handler>
 		<search-keyword-resolver>quntear.dec.view.InputsRequiredFieldKeywordResolver</search-keyword-resolver>
 	</application>
 </faces-config>

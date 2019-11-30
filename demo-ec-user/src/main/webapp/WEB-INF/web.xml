@@ -4,6 +4,11 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd">
 
+	<context-param>
+		<param-name>org.omnifaces.SOURCE_MAP_RESOURCE_HANDLER_PATTERN</param-name>
+		<param-value>sourcemaps/*.map</param-value>
+	</context-param>
+
 	<resource-ref>
 		<res-ref-name>jsf/ProjectStage</res-ref-name>
 		<res-type>java.lang.String</res-type>
