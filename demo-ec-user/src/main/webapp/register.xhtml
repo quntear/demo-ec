@@ -28,6 +28,7 @@
 				<div class="mb-3">
 					<h:outputLabel for="email" value="Email" />
 					<h:inputText a:type="email" id="email" value="#{register.email}" required="true"
+						validator="uniqueEmailValidator"
 						a:class="form-control #{facesContext.postback ? (!component.valid ? 'is-invalid' : 'is-valid') : ''}"
 						a:placeholder="you@example.com"/>
 					<div class="invalid-feedback"><h:message for="email" id="m_email"/></div>
