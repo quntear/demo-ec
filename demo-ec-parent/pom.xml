@@ -10,9 +10,39 @@
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
-				<groupId>javax</groupId>
-				<artifactId>javaee-api</artifactId>
-				<version>8.0</version>
+				<groupId>com.guicedee.services</groupId>
+				<artifactId>jakarta.enterprise.cdi-api</artifactId>
+				<version>0.70.0.1</version>
+				<scope>provided</scope>
+			</dependency>
+			<dependency>
+				<groupId>com.guicedee.services</groupId>
+				<artifactId>javax.faces</artifactId>
+				<version>0.70.0.1</version>
+				<scope>provided</scope>
+			</dependency>
+			<dependency>
+				<groupId>com.guicedee.services</groupId>
+				<artifactId>javax.servlet-api</artifactId>
+				<version>0.70.0.1</version>
+				<scope>provided</scope>
+			</dependency>
+			<dependency>
+				<groupId>com.guicedee.services</groupId>
+				<artifactId>jakarta.validation-api</artifactId>
+				<version>0.70.0.1</version>
+				<scope>provided</scope>
+			</dependency>
+			<dependency>
+				<groupId>com.guicedee.services</groupId>
+				<artifactId>javax.inject</artifactId>
+				<version>0.70.0.1</version>
+				<scope>provided</scope>
+			</dependency>
+			<dependency>
+				<groupId>com.guicedee.services</groupId>
+				<artifactId>jakarta.el</artifactId>
+				<version>0.70.0.1</version>
 				<scope>provided</scope>
 			</dependency>
 

@@ -1,5 +1,9 @@
 module demoec.user {
-	requires javaee.api;
+	requires jakarta.enterprise.cdi;
+	requires java.validation;
+	requires javax.el;
+	requires javax.faces;
+	requires javax.inject;
+	requires javax.servlet.api;
 	requires omnifaces;
-	
 }
