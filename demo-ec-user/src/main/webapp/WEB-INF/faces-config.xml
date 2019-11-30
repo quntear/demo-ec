@@ -10,7 +10,10 @@
 	
 	<application>
 		<message-bundle>view.i18n.messages</message-bundle>
-		<resource-handler>org.omnifaces.resourcehandler.SourceMapResourceHandler</resource-handler>
+		
+		<!-- UnmappedResourceHandler must be the last of resource-handler -->
+		<resource-handler>org.omnifaces.resourcehandler.UnmappedResourceHandler</resource-handler>
+		
 		<search-keyword-resolver>quntear.dec.view.InputsRequiredFieldKeywordResolver</search-keyword-resolver>
 	</application>
 </faces-config>
