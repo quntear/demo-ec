@@ -10,7 +10,6 @@
 	
 	<application>
 		<message-bundle>view.i18n.messages</message-bundle>
-		<search-keyword-resolver>quntear.dec.view.MessagesKeywordResolver</search-keyword-resolver>
 		<search-keyword-resolver>quntear.dec.view.InputsRequiredFieldKeywordResolver</search-keyword-resolver>
 	</application>
 </faces-config>
