@@ -55,20 +55,20 @@
 					</div>
 				</div>
 				<hr class="mb-4"/>
-				<h:commandButton action="#{register.submit}" id="submitBtn" value="สมัครใหม่" a:class="btn btn-primary btn-lg btn-block"
-					onclick="return confirmSubmit();">
-					<f:ajax execute="@form" render="@messages @inputs-required-field"/>
-				</h:commandButton>
+				<button type="button" data-toggle="modal" data-target="#component-confirm-model"
+					class="btn btn-primary btn-lg btn-block">
+					สมัครใหม่
+				</button>
+				
+				<h:commandScript name="registerSubmit" execute="@form" render="@messages @inputs-required-field"/>
 			</h:form>
 		</div>
 	</div>
-</ui:define>
-
-<ui:define name="footer">
-<script type="text/javascript">
-var confirmSubmit = function() {
-	return confirm('Do you really want to submit the form?');
-}
-</script>
+	
+	<ui:include src="/WEB-INF/html-components/confirm-model.xhtml">
+		<ui:param name="modelTitle" value="ต้องการจะสร้างบัญชี?"/>
+		<ui:param name="onConfirmModelClick" value="registerSubmit();" />
+		<ui:param name="confirmButtonValue" value="สมัคร" />
+	</ui:include>
 </ui:define>
 </ui:composition>

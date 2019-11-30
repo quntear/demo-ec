@@ -1,0 +1,29 @@
+<ui:composition xmlns:="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+	<div class="modal fade bd-example-modal-md" tabindex="-1" id="component-confirm-model"
+		role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-md">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title" id="mySmallModalLabel">
+						#{modelTitle}
+					</h4>
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&#215;</span>
+					</button>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">
+						#{text['close']}
+					</button>
+					<button type="button" class="btn btn-primary" data-dismiss="modal" onclick="#{onConfirmModelClick}">
+						#{confirmButtonValue}
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</ui:composition>
