@@ -55,11 +55,20 @@
 					</div>
 				</div>
 				<hr class="mb-4"/>
-				<h:commandButton action="#{register.submit}" value="สมัครใหม่" a:class="btn btn-primary btn-lg btn-block">
+				<h:commandButton action="#{register.submit}" id="submitBtn" value="สมัครใหม่" a:class="btn btn-primary btn-lg btn-block"
+					onclick="return confirmSubmit();">
 					<f:ajax execute="@form" render="@messages @inputs-required-field"/>
 				</h:commandButton>
 			</h:form>
 		</div>
 	</div>
+</ui:define>
+
+<ui:define name="footer">
+<script type="text/javascript">
+var confirmSubmit = function() {
+	return confirm('Do you really want to submit the form?');
+}
+</script>
 </ui:define>
 </ui:composition>
