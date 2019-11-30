@@ -29,12 +29,11 @@
 					<h:outputLabel for="email" value="Email" />
 					<h:inputText a:type="email" id="email" value="#{register.email}" required="true"
 						a:class="form-control #{facesContext.postback ? (!component.valid ? 'is-invalid' : 'is-valid') : ''}"
-						a:placeholder="you@example.com" />
+						a:placeholder="you@example.com"/>
 					<div class="invalid-feedback"><h:message for="email" id="m_email"/></div>
 				</div>
-				
-				<o:validateMultiple id="passwordAndConfirmPassword" 
-					components="password confirmPassword" validator="#{twoObjectsEquals}" 
+					
+				<o:validateEqual id="equal" components="password confirmPassword" showMessageFor="password" 
 					message="Your password and confirmation password do not match"/>
 
 				<div class="mb-3">
@@ -43,7 +42,6 @@
 						a:class="form-control #{facesContext.postback ? (!component.valid ? 'is-invalid' : 'is-valid') : ''}"/>
 					<div class="invalid-feedback">
 						<h:message for="password" id="m_password"/>
-						<h:message for="passwordAndConfirmPassword" id="m_passwordAndConfirmPassword" />
 					</div>
 				</div>
 				
