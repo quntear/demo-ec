@@ -60,7 +60,8 @@
 					สมัครใหม่
 				</button>
 				
-				<h:commandScript name="registerSubmit" execute="@form" render="@messages @inputs-required-field"/>
+				<h:commandScript name="registerSubmit" execute="@form" action="#{register.submit}"
+					render="@messages @inputs-required-field" />
 			</h:form>
 		</div>
 	</div>
