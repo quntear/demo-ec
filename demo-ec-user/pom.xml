@@ -49,6 +49,22 @@
 			<groupId>com.guicedee.services</groupId>
 			<artifactId>jakarta.el</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>com.guicedee.services</groupId>
+			<artifactId>jakarta.persistence-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.guicedee.services</groupId>
+			<artifactId>jakarta.ejb-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>javax.security.enterprise</groupId>
+			<artifactId>javax.security.enterprise-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>javax.json.bind</groupId>
+			<artifactId>javax.json.bind-api</artifactId>
+		</dependency>
 
 		<dependency>
 			<groupId>org.eclipse.microprofile</groupId>
