@@ -5,6 +5,7 @@ module demoec.user {
 	requires java.persistence;
 	requires java.validation;
 	requires java.sql;
+	requires java.ws.rs;
 	requires javax.ejb;
 	requires javax.el;
 	requires javax.faces;
