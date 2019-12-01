@@ -1,0 +1,24 @@
+<ui:composition template="/WEB-INF/templates/layout.xhtml" 
+	xmlns:="http://www.w3.org/1999/xhtml"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:o="http://omnifaces.org/ui">
+	<ui:param name="title" value="เข้าสู่ระบบ" />
+
+<ui:define name="content">
+	<div class="row">
+		<div class="col-md-12">
+			<h4 class="mb-3">เข้าสู่ระบบ</h4>
+			<h:form id="register" prependId="false" a:novalidate="novalidate">
+			</h:form>
+		</div>
+	</div>
+</ui:define>
+
+<ui:define name="footer">
+<script type="text/javascript">
+</script>
+</ui:define>
+</ui:composition>
