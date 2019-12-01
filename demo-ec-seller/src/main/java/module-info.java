@@ -1,2 +1,2 @@
-module demoec.user {
+module demoec.seller {
 }
