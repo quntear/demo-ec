@@ -9,8 +9,8 @@ import javax.json.bind.Jsonb;
 import javax.json.bind.JsonbBuilder;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.security.enterprise.identitystore.Pbkdf2PasswordHash;
 
+import quntear.dec.control.UserService;
 import quntear.dec.entity.User;
 
 @Singleton
@@ -22,7 +22,7 @@ public class CreateExampleUser {
 	private EntityManager em;
 
 	@Inject
-	private Pbkdf2PasswordHash passwordHash;
+	private UserService userService;
 
 	@PostConstruct
 	public void initialize() {
@@ -35,12 +35,11 @@ public class CreateExampleUser {
 	}
 
 	private void createExampleUser() {
-		User entity = new User();
-		entity.setActive(Boolean.FALSE);
-		entity.setEmail("quntear@email.com");
-		entity.setFirstName("Thanarat");
-		entity.setLastName("Yangsouy");
-		entity.setPassword(passwordHash.generate("p@ssw0rd".toCharArray()));
-		em.persist(entity);
+		User requestUser = new User();
+		requestUser.setEmail("quntear@email.com");
+		requestUser.setFirstName("Thanarat");
+		requestUser.setLastName("Yangsouy");
+		requestUser.setPassword("p@ssw0rd");
+		userService.create(requestUser);
 	}
 }
