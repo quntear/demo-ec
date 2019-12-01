@@ -81,8 +81,7 @@
 				<version>1.6.2</version>
 				<scope>provided</scope>
 			</dependency>
-
-
+			
 			<dependency>
 				<groupId>org.eclipse.microprofile</groupId>
 				<artifactId>microprofile</artifactId>
@@ -95,6 +94,12 @@
 				<groupId>org.javassist</groupId>
 				<artifactId>javassist</artifactId>
 				<version>3.26.0-GA</version>
+			</dependency>
+			
+			<dependency>
+				<groupId>org.omnifaces</groupId>
+				<artifactId>omnifaces</artifactId>
+				<version>3.4</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
