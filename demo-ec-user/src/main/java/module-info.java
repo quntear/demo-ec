@@ -9,6 +9,7 @@ module demoec.user {
 	requires javax.ejb;
 	requires javax.el;
 	requires javax.faces;
+	requires javax.mail.api;
 	requires javax.inject;
 	requires javax.security.enterprise.api;
 	requires javax.servlet.api;
