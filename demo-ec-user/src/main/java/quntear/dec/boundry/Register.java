@@ -2,6 +2,7 @@ package quntear.dec.boundry;
 
 import java.io.Serializable;
 
+import javax.faces.context.FacesContext;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -80,5 +81,9 @@ public class Register implements Serializable {
 		
 		Integer createdUserId = created.getId();
 		System.out.println("user has been created id " + createdUserId);
+		
+		FacesContext.getCurrentInstance().getPartialViewContext()
+	        .getEvalScripts()
+	        .add("successfullyForward();");
 	}
 }

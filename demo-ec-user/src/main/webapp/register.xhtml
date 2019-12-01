@@ -61,7 +61,11 @@
 				</button>
 				
 				<h:commandScript name="registerSubmit" execute="@form" action="#{register.submit}"
-					render="@messages @inputs-required-field" />
+					render="@messages @inputs-required-field"/>
+			</h:form>
+			
+			<h:form prependId="false">
+				<h:commandButton action="successfully" a:style="display:none" id="successfullyForwardBtn"/>
 			</h:form>
 		</div>
 	</div>
@@ -71,5 +75,13 @@
 		<ui:param name="onConfirmModelClick" value="registerSubmit();" />
 		<ui:param name="confirmButtonValue" value="สมัคร" />
 	</ui:include>
+</ui:define>
+
+<ui:define name="footer">
+<script type="text/javascript">
+function successfullyForward() {
+	$('#successfullyForwardBtn').click();
+}
+</script>
 </ui:define>
 </ui:composition>
