@@ -27,7 +27,7 @@ public class UniqueEmailValidator implements Validator<String> {
 		}
 		
 		String oldValue = (String) ((UIInput) component).getValue();
-		if (!value.equals(oldValue) && !userService.exist(value)) {
+		if (!value.equals(oldValue) && userService.exist(value)) {
 			throw new ValidatorException(new FacesMessage(getMessage(context, "email-already-in-use")));
 		}
 	}
