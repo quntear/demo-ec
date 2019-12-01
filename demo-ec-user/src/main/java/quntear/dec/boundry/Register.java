@@ -3,8 +3,12 @@ package quntear.dec.boundry;
 import java.io.Serializable;
 
 import javax.faces.view.ViewScoped;
+import javax.inject.Inject;
 import javax.inject.Named;
 import javax.validation.constraints.Email;
+
+import quntear.dec.control.UserService;
+import quntear.dec.entity.User;
 
 @Named
 @ViewScoped
@@ -61,12 +65,20 @@ public class Register implements Serializable {
 	public void setConfirmPassword(String confirmPassword) {
 		this.confirmPassword = confirmPassword;
 	}
+	
+	@Inject
+	private UserService userService;
 
 	public void submit() {
-		System.out.println(firstName);
-		System.out.println(lastName);
-		System.out.println(email);
-		System.out.println(password);
-		System.out.println(confirmPassword);
+		User requestUser = new User();
+		requestUser.setFirstName(firstName);
+		requestUser.setLastName(lastName);
+		requestUser.setEmail(email);
+		requestUser.setPassword(password);
+		
+		User created = userService.create(requestUser);
+		
+		Integer createdUserId = created.getId();
+		System.out.println("user has been created id " + createdUserId);
 	}
 }
