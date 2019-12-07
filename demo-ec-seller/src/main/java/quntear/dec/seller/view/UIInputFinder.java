@@ -8,7 +8,6 @@ import javax.enterprise.context.RequestScoped;
 import javax.enterprise.inject.Produces;
 import javax.enterprise.inject.spi.InjectionPoint;
 import javax.faces.component.UIInput;
-import javax.faces.component.UIViewRoot;
 import javax.faces.component.visit.VisitContext;
 import javax.faces.component.visit.VisitResult;
 import javax.faces.context.FacesContext;
@@ -29,7 +28,7 @@ public class UIInputFinder {
 		}
 		
 		var ids = Arrays.asList(qualifier.id());
-		var found = getInputsList(ids, facesContext.getViewRoot());
+		var found = getInputsList(ids);
 		
 		return found.isEmpty() ? null : found.get(0);
 	}
@@ -43,7 +42,7 @@ public class UIInputFinder {
 		}
 		
 		List<String> ids = Arrays.asList(qualifier.id());
-		return getInputsList(ids, facesContext.getViewRoot());
+		return getInputsList(ids);
 	}
 	
 	private UiQualifier getRequireUiQualifierAnnotation(final InjectionPoint ip) {
@@ -55,10 +54,10 @@ public class UIInputFinder {
 		return qualifier;
 	}
 	
-	private List<UIInput> getInputsList(List<String> ids, UIViewRoot root) {
+	private List<UIInput> getInputsList(List<String> ids) {
 		List<UIInput> componentCollector = new ArrayList<>();
 		
-		root.visitTree(VisitContext.createVisitContext(facesContext), (visit, target) -> {
+		facesContext.getViewRoot().visitTree(VisitContext.createVisitContext(facesContext), (visit, target) -> {
 			if (ids.contains(target.getId()) && target instanceof UIInput) {
 				UIInput input = (UIInput) target;
 				componentCollector.add(input);
