@@ -5,7 +5,6 @@ import javax.enterprise.event.Event;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.security.enterprise.identitystore.Pbkdf2PasswordHash;
 
 import quntear.dec.CustomPbkdf2PasswordHashParameters;
 import quntear.dec.entity.User;
