@@ -70,6 +70,22 @@
 			<artifactId>javax.ws.rs-api</artifactId>
 		</dependency>
 		
+		<dependency>
+			<groupId>org.eclipse.microprofile</groupId>
+			<artifactId>microprofile</artifactId>
+			<type>pom</type>
+		</dependency>
+
+		<dependency>
+			<groupId>org.javassist</groupId>
+			<artifactId>javassist</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.omnifaces</groupId>
+			<artifactId>omnifaces</artifactId>
+		</dependency>
+		
 		<!-- WebJars -->
 		<dependency>
 			<groupId>org.webjars</groupId>
