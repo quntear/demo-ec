@@ -12,41 +12,41 @@
 </ui:define>
 
 <ui:define name="content">
-	<h:form id="register" prependId="false" a:class="form-signin">
+	<h:form id="login" prependId="false" a:class="form-signin">
 		<div class="text-center mb-4">
-			<h:graphicImage styleClass="mb-4" value="/resources/images/ecommerce.png" a:alt="" a:width="72" a:height="72"/>
+			<h:graphicImage styleClass="mb-4" value="/resources/images/ecommerce.png" 
+				a:alt="" a:width="72" a:height="72"/>
 			<h1 class="h3 mb-3 font-weight-normal">#{text['please-login']}</h1>
 		</div>
 
-		<div class="form-label-group">
+		<div class="mb-3">
+			<o:outputLabel for="email" value="Email address" />
 			<h:inputText id="email" value="#{login.email}" required="true" 
 				a:type="email"
 				a:autofocus="autofocus"
-				a:placeholder="Email address"
 				a:class="form-control #{facesContext.postback ? (!component.valid ? 'is-invalid' : 'is-valid') : ''}"/>
-			<h:outputLabel for="email" value="Email address" />
 			<div class="invalid-feedback"><h:message for="email" id="m_email"/></div>
 		</div>
 
-		<div class="form-label-group">
+		<div class="mb-3">
+			<o:outputLabel for="password" value="Password" />
 			<h:inputSecret value="#{login.password}" id="password" required="true"
-				a:placeholder="Password"
 				a:class="form-control #{facesContext.postback ? (!component.valid ? 'is-invalid' : 'is-valid') : ''}"/>
-			<h:outputLabel for="password" value="Password" />
 			<div class="invalid-feedback">
 				<h:message for="password" id="m_password"/>
 			</div>
+		</div>
+		
+		<div class="mb-3">
+			<h:inputHidden id="login_failed"/>
+			<h:message for="login_failed" id="m_login_failed" styleClass="text-danger"/>
 		</div>
 
 		<!-- <div class="checkbox mb-3">
 			<label><input type="checkbox" value="remember-me"/>Remember me</label>
 		</div> -->
-		<button class="btn btn-lg btn-primary btn-block" type="submit">#{text['login']}</button>
+		<h:commandButton action="#{login.submit}" value="#{text['login']}"
+			a:class="btn btn-lg btn-primary btn-block"/>
 	</h:form>
-</ui:define>
-
-<ui:define name="footer">
-<script type="text/javascript">
-</script>
 </ui:define>
 </ui:composition>
