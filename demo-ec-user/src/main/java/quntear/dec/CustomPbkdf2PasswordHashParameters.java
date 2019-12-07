@@ -1,6 +1,5 @@
 package quntear.dec;
 
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -19,9 +18,9 @@ public class CustomPbkdf2PasswordHashParameters implements PasswordHash {
 	@PostConstruct
 	private void initPasswordHash() {
 		Map<String, String> parameters = new HashMap<>();
-        parameters.put("Pbkdf2PasswordHash.Iterations", "3072");
-        parameters.put("Pbkdf2PasswordHash.KeySizeBytes", "64");
-        parameters.put("Pbkdf2PasswordHash.SaltSizeBytes", "64");
+		parameters.put("Pbkdf2PasswordHash.Iterations", "3072");
+		parameters.put("Pbkdf2PasswordHash.KeySizeBytes", "64");
+		parameters.put("Pbkdf2PasswordHash.SaltSizeBytes", "64");
         
 		passwordHash.initialize(parameters);
 	}
