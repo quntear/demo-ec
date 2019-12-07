@@ -7,6 +7,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.security.enterprise.identitystore.Pbkdf2PasswordHash;
 
+import quntear.dec.CustomPbkdf2PasswordHashParameters;
 import quntear.dec.entity.User;
 import quntear.dec.event.UserCreated;
 
@@ -17,7 +18,7 @@ public class UserService {
 	private EntityManager em;
 	
 	@Inject
-	private Pbkdf2PasswordHash passwordHash;
+	private CustomPbkdf2PasswordHashParameters passwordHash;
 	
 	@Inject
 	@UserCreated
@@ -37,7 +38,7 @@ public class UserService {
 		entity.setFirstName(requestUser.getFirstName());
 		entity.setLastName(requestUser.getLastName());
 		
-		String encodedPassword = passwordHash.generate(requestUser.getPassword().toCharArray());
+		String encodedPassword = passwordHash.generate(requestUser.getPassword());
 		entity.setPassword(encodedPassword);
 		
 		em.persist(entity);
