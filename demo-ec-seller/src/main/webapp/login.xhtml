@@ -21,17 +21,15 @@
 
 		<div class="mb-3">
 			<o:outputLabel for="email" value="Email address" />
-			<h:inputText id="email" value="#{login.email}" required="true" 
-				a:type="email"
-				a:autofocus="autofocus"
-				a:class="form-control #{facesContext.postback ? (!component.valid ? 'is-invalid' : 'is-valid') : ''}"/>
+			<h:inputText id="email" value="#{login.email}" required="true" autocomplete="off"
+				a:type="email" a:autofocus="autofocus" a:class="form-control"/>
 			<div class="invalid-feedback"><h:message for="email" id="m_email"/></div>
 		</div>
 
 		<div class="mb-3">
 			<o:outputLabel for="password" value="Password" />
-			<h:inputSecret value="#{login.password}" id="password" required="true"
-				a:class="form-control #{facesContext.postback ? (!component.valid ? 'is-invalid' : 'is-valid') : ''}"/>
+			<h:inputSecret value="#{login.password}" id="password" required="true" autocomplete="off"
+				a:class="form-control"/>
 			<div class="invalid-feedback">
 				<h:message for="password" id="m_password"/>
 			</div>
@@ -45,6 +43,7 @@
 		<!-- <div class="checkbox mb-3">
 			<label><input type="checkbox" value="remember-me"/>Remember me</label>
 		</div> -->
+		<o:highlight styleClass="is-invalid" />
 		<h:commandButton action="#{login.submit}" value="#{text['login']}"
 			a:class="btn btn-lg btn-primary btn-block"/>
 	</h:form>
