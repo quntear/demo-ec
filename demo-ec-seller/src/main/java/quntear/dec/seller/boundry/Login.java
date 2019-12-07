@@ -62,6 +62,10 @@ public class Login implements Serializable {
 	@Inject
 	private FacesContext facesContext;
 	
+	@Inject
+	@Ui @UiQualifier(id = {"email", "password"})
+	private List<UIInput> inputs;
+
 	public String submit() {
 		var request = (HttpServletRequest) externalContext.getRequest();
 		var response = (HttpServletResponse) externalContext.getResponse();
@@ -72,6 +76,7 @@ public class Login implements Serializable {
 		if (SEND_CONTINUE.equals(status)) {
 			facesContext.responseComplete();
 		} else if (SEND_FAILURE.equals(status)) {
+			inputs.forEach(i -> i.setValid(false));
 			Messages.addWarn("login_failed", "Login failed");
 			this.email = null;
 		} else if (SUCCESS.equals(status)) {
