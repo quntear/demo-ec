@@ -69,6 +69,9 @@ public class Register implements Serializable {
 	
 	@Inject
 	private UserService userService;
+	
+	@Inject
+	private FacesContext facesContext;
 
 	public void submit() {
 		User requestUser = new User();
@@ -82,8 +85,7 @@ public class Register implements Serializable {
 		Integer createdUserId = created.getId();
 		System.out.println("user has been created id " + createdUserId);
 		
-		FacesContext.getCurrentInstance().getPartialViewContext()
-	        .getEvalScripts()
-	        .add("successfullyForward();");
+		facesContext.getPartialViewContext().getEvalScripts()
+			.add("successfullyForward();");
 	}
 }
