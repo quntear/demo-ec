@@ -12,6 +12,7 @@ import javax.persistence.PersistenceContext;
 
 import quntear.dec.user.control.UserService;
 import quntear.dec.user.entity.User;
+import quntear.dec.user.entity.UserGroup;
 
 @Singleton
 @Startup
@@ -40,6 +41,8 @@ public class CreateExampleUser {
 		requestUser.setFirstName("Thanarat");
 		requestUser.setLastName("Yangsouy");
 		requestUser.setPassword("p@ssw0rd");
+		requestUser.addGroup(new UserGroup("SELLER"));
+		requestUser.addGroup(new UserGroup("ADMIN"));
 		userService.create(requestUser);
 	}
 }

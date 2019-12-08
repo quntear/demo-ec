@@ -36,6 +36,7 @@ public class UserService {
 		entity.setEmail(requestUser.getEmail());
 		entity.setFirstName(requestUser.getFirstName());
 		entity.setLastName(requestUser.getLastName());
+		requestUser.getUserGroups().forEach(ug -> entity.addGroup(ug));
 		
 		String encodedPassword = passwordHash.generate(requestUser.getPassword());
 		entity.setPassword(encodedPassword);
