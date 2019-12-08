@@ -17,4 +17,8 @@ public class UserPrincipal extends CallerPrincipal {
 		return user;
 	}
 
+	@Override
+	public String toString() {
+		return user.getFirstName();
+	}
 }

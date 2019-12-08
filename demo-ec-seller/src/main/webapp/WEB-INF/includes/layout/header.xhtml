@@ -1,7 +1,13 @@
 <ui:composition xmlns:="http://www.w3.org/1999/xhtml"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 
 	<div class="py-5 text-center">
+		<c:if test="#{not empty request.userPrincipal}">
+			<h:form>
+				#{request.userPrincipal} <h:commandButton action="#{logout.submit}" value="Logout" />
+			</h:form>
+		</c:if>
 	</div>
 </ui:composition>
