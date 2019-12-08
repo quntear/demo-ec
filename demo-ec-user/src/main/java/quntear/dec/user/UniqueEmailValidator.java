@@ -1,4 +1,4 @@
-package quntear.dec;
+package quntear.dec.user;
 
 import java.util.Locale;
 import java.util.ResourceBundle;
@@ -12,7 +12,7 @@ import javax.faces.validator.Validator;
 import javax.faces.validator.ValidatorException;
 import javax.inject.Inject;
 
-import quntear.dec.control.UserService;
+import quntear.dec.user.control.UserService;
 
 @FacesValidator(value = "uniqueEmailValidator", managed = true)
 public class UniqueEmailValidator implements Validator<String> {

@@ -1,4 +1,4 @@
-package quntear.dec.view;
+package quntear.dec.user.view;
 
 import java.util.HashSet;
 import java.util.Set;

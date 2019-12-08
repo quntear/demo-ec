@@ -1,4 +1,4 @@
-package quntear.dec;
+package quntear.dec.user;
 
 import java.sql.Connection;
 import java.sql.SQLException;

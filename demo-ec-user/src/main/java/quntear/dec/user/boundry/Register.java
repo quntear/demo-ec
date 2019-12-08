@@ -1,4 +1,4 @@
-package quntear.dec.boundry;
+package quntear.dec.user.boundry;
 
 import java.io.Serializable;
 
@@ -8,8 +8,8 @@ import javax.inject.Inject;
 import javax.inject.Named;
 import javax.validation.constraints.Email;
 
-import quntear.dec.control.UserService;
-import quntear.dec.entity.User;
+import quntear.dec.user.control.UserService;
+import quntear.dec.user.entity.User;
 
 @Named
 @ViewScoped

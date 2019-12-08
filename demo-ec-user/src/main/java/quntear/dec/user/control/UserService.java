@@ -1,4 +1,4 @@
-package quntear.dec.control;
+package quntear.dec.user.control;
 
 import javax.ejb.Stateless;
 import javax.enterprise.event.Event;
@@ -6,9 +6,9 @@ import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-import quntear.dec.CustomPbkdf2PasswordHashParameters;
-import quntear.dec.entity.User;
-import quntear.dec.event.UserCreated;
+import quntear.dec.user.CustomPbkdf2PasswordHashParameters;
+import quntear.dec.user.entity.User;
+import quntear.dec.user.event.UserCreated;
 
 @Stateless
 public class UserService {

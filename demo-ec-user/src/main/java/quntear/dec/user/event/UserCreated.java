@@ -1,4 +1,4 @@
-package quntear.dec.event;
+package quntear.dec.user.event;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

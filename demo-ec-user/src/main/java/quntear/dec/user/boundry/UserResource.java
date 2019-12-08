@@ -1,11 +1,11 @@
-package quntear.dec.boundry;
+package quntear.dec.user.boundry;
 
 import javax.inject.Inject;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 
-import quntear.dec.control.UserService;
+import quntear.dec.user.control.UserService;
 
 @Path("users")
 public class UserResource {
@@ -19,4 +19,5 @@ public class UserResource {
 		userService.activate(userId);
 	}
 
+	
 }

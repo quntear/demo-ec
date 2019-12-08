@@ -1,4 +1,4 @@
-package quntear.dec;
+package quntear.dec.user;
 
 import javax.faces.annotation.FacesConfig;
 

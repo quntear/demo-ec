@@ -1,4 +1,4 @@
-package quntear.dec;
+package quntear.dec.user;
 
 import javax.annotation.PostConstruct;
 import javax.ejb.DependsOn;
@@ -10,8 +10,8 @@ import javax.json.bind.JsonbBuilder;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-import quntear.dec.control.UserService;
-import quntear.dec.entity.User;
+import quntear.dec.user.control.UserService;
+import quntear.dec.user.entity.User;
 
 @Singleton
 @Startup

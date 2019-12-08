@@ -1,4 +1,4 @@
-package quntear.dec.event;
+package quntear.dec.user.event;
 
 import java.util.Date;
 
@@ -12,7 +12,7 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
-import quntear.dec.entity.User;
+import quntear.dec.user.entity.User;
 
 @Stateless
 public class UserCreatedObserves {

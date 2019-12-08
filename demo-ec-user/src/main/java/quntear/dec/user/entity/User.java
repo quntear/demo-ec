@@ -1,4 +1,4 @@
-package quntear.dec.entity;
+package quntear.dec.user.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
