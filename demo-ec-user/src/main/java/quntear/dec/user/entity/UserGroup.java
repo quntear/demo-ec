@@ -20,6 +20,7 @@ import javax.persistence.Table;
 })
 public class UserGroup {
 
+	@JsonbTransient
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
