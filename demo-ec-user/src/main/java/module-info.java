@@ -15,4 +15,5 @@ module demoec.user {
 	requires javax.servlet.api;
 	requires microprofile.config.api;
 	requires omnifaces;
+	requires org.apache.commons.io;
 }

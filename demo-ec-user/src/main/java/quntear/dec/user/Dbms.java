@@ -1,5 +1,8 @@
 package quntear.dec.user;
 
+import static java.nio.charset.StandardCharsets.UTF_8;
+
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -9,10 +12,9 @@ import javax.annotation.PreDestroy;
 import javax.annotation.Resource;
 import javax.ejb.Singleton;
 import javax.ejb.Startup;
-import javax.inject.Inject;
 import javax.sql.DataSource;
 
-import org.eclipse.microprofile.config.inject.ConfigProperty;
+import org.apache.commons.io.IOUtils;
 
 @Singleton
 @Startup
@@ -21,39 +23,30 @@ public class Dbms {
 	@Resource(lookup = "jdbc/__default")
 	private DataSource dataSource;
 
-	@Inject
-	@ConfigProperty(name = "quntear.dec.sql.create-table-user")
-	private String createUserTableStmt;
-
 	@PostConstruct
 	public void initialize() {
-		createUserTable();
-	}
-	
-	private void createUserTable() {
-		try (Connection conn = dataSource.getConnection(); Statement stmt = conn.createStatement();) {
-			stmt.executeUpdate(createUserTableStmt);
-			
-			System.out.println("successfully create table user");
-		} catch (SQLException e) {
-			System.err.println("unable to create table user: " + e.getMessage());
-			e.printStackTrace();
-		}
+		executeUpdate("sqls/drop.sql");
+		executeUpdate("sqls/create.sql");
 	}
 	
 	@PreDestroy
 	private void destroy() {
-		dropUserTable();
+		executeUpdate("sqls/drop.sql");
 	}
-
-	private void dropUserTable() {
+	
+	private void executeUpdate(String sqlPath) {
 		try (Connection conn = dataSource.getConnection(); Statement stmt = conn.createStatement();) {
-			stmt.executeUpdate("DROP TABLE user");
+			String sql = IOUtils.toString(getModule().getResourceAsStream(sqlPath), UTF_8); 
+			stmt.executeUpdate(sql);
 			
-			System.out.println("successfully drop table user");
-		} catch (SQLException e) {
-			System.err.println("unable to drop table user: " + e.getMessage());
+			System.out.println("successfully execute statement: " + sql);
+		} catch (IOException | SQLException e) {
+			System.err.println("unable to execute sql: " + e.getMessage());
 			e.printStackTrace();
 		}
+	}
+	
+	private Module getModule() {
+		return this.getClass().getModule();
 	}
 }
