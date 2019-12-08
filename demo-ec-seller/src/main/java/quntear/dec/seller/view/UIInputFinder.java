@@ -23,7 +23,7 @@ public class UIInputFinder {
 	public UIInput getInputById(final InjectionPoint ip) {
 		UiQualifier qualifier = getRequireUiQualifierAnnotation(ip);
 		
-		if (Boolean.valueOf(qualifier.postback()) && !facesContext.isPostback()) {
+		if (qualifier.postback() && !facesContext.isPostback()) {
 			return null;
 		}
 		
@@ -37,7 +37,7 @@ public class UIInputFinder {
 	public List<UIInput> getInputsById(final InjectionPoint ip) {
 		UiQualifier qualifier = getRequireUiQualifierAnnotation(ip);
 		
-		if (Boolean.valueOf(qualifier.postback()) && !facesContext.isPostback()) {
+		if (qualifier.postback() && !facesContext.isPostback()) {
 			return null;
 		}
 		
