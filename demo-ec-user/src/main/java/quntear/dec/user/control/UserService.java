@@ -1,9 +1,14 @@
 package quntear.dec.user.control;
 
+import java.util.Optional;
+
 import javax.ejb.Stateless;
+import javax.ejb.TransactionAttribute;
+import javax.ejb.TransactionAttributeType;
 import javax.enterprise.event.Event;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 
 import quntear.dec.user.CustomPbkdf2PasswordHashParameters;
@@ -53,5 +58,17 @@ public class UserService {
 		
 		found.setActive(Boolean.TRUE);
 		em.merge(found);
+	}
+	
+	@TransactionAttribute(TransactionAttributeType.NOT_SUPPORTED)
+	public Optional<User> getByEmailAndPassword(String email, String password) {
+		try {
+			User found = em.createNamedQuery("User.findByEmail", User.class).setParameter("email", email)
+					.getSingleResult();
+			
+			return passwordHash.verify(password, found.getPassword()) ? Optional.of(found) : Optional.empty();
+		} catch (NoResultException e) {
+			return Optional.empty();
+		}
 	}
 }

@@ -1,14 +1,21 @@
 package quntear.dec.seller.model;
 
+import java.util.List;
+
 public class User {
 
 	private Integer id;
 	private String email;
 	private String firstName;
 	private String lastName;
+	private List<UserGroup> userGroups;
 
 	public Integer getId() {
 		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 	public String getEmail() {
@@ -35,4 +42,11 @@ public class User {
 		this.lastName = lastName;
 	}
 
+	public List<UserGroup> getUserGroups() {
+		return userGroups;
+	}
+
+	public void setUserGroups(List<UserGroup> userGroups) {
+		this.userGroups = userGroups;
+	}
 }

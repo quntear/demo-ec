@@ -3,6 +3,7 @@ package quntear.dec.user.entity;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.json.bind.annotation.JsonbTransient;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -15,22 +16,30 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "user")
-@NamedQueries({
+@NamedQueries({ 
 	@NamedQuery(name = "User.findAll", query = "SELECT u FROM User u"),
-	@NamedQuery(name = "User.countByEmail", query = "SELECT COUNT(u) FROM User u WHERE u.email = :email")
+	@NamedQuery(name = "User.countByEmail", query = "SELECT COUNT(u) FROM User u WHERE u.email = :email"),
+	@NamedQuery(name = "User.findByEmail", query = "SELECT u FROM User u WHERE u.email = :email") 
 })
 public class User {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	private Boolean active;
-	private String email;
-	private String password;
-	private String firstName;
-	private String lastName;
 	
-	@OneToMany(mappedBy = "user", cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
+	@JsonbTransient
+	private Boolean active;
+	
+	private String email;
+	
+	@JsonbTransient
+	private String password;
+	
+	private String firstName;
+	
+	private String lastName;
+
+	@OneToMany(mappedBy = "user", cascade = { CascadeType.PERSIST, CascadeType.REMOVE })
 	private Set<UserGroup> userGroups = new HashSet<>();
 
 	public Integer getId() {
@@ -84,9 +93,9 @@ public class User {
 	public void setUserGroups(Set<UserGroup> userGroups) {
 		this.userGroups = userGroups;
 	}
-	
+
 	public void addGroup(UserGroup userGroup) {
 		userGroups.add(userGroup);
 		userGroup.setUser(this);
-    }
+	}
 }

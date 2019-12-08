@@ -2,6 +2,7 @@ package quntear.dec.seller.boundry;
 
 import static javax.security.enterprise.AuthenticationStatus.SEND_CONTINUE;
 import static javax.security.enterprise.AuthenticationStatus.SEND_FAILURE;
+import static javax.security.enterprise.AuthenticationStatus.NOT_DONE;
 import static javax.security.enterprise.AuthenticationStatus.SUCCESS;
 
 import java.io.Serializable;
@@ -77,6 +78,10 @@ public class Login implements Serializable {
 		} else if (SEND_FAILURE.equals(status)) {
 			inputs.forEach(i -> i.setValid(false));
 			Messages.addWarn("login_failed", "Login failed");
+			this.email = null;
+		} else if (NOT_DONE.equals(status)) {
+			inputs.forEach(i -> i.setValid(false));
+			Messages.addWarn("login_failed", "Internal server error unable to complete your request");
 			this.email = null;
 		} else if (SUCCESS.equals(status)) {
 			return "welcome.html?faces-redirect=true";
