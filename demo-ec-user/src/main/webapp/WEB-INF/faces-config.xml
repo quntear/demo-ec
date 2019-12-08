@@ -5,7 +5,7 @@
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_3.xsd">
 
 	<factory>
-		<exception-handler-factory>quntear.dec.DefaultExceptionHandler$Factory</exception-handler-factory>
+		<exception-handler-factory>quntear.dec.user.DefaultExceptionHandler$Factory</exception-handler-factory>
 	</factory>
 	
 	<application>
@@ -18,6 +18,6 @@
 		<!-- UnmappedResourceHandler must be the last of resource-handler -->
 		<resource-handler>org.omnifaces.resourcehandler.UnmappedResourceHandler</resource-handler>
 		
-		<search-keyword-resolver>quntear.dec.view.InputsRequiredFieldKeywordResolver</search-keyword-resolver>
+		<search-keyword-resolver>quntear.dec.user.view.InputsRequiredFieldKeywordResolver</search-keyword-resolver>
 	</application>
 </faces-config>
