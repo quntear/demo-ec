@@ -1,13 +1,20 @@
 package quntear.dec.user.entity;
 
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "user")
 @NamedQueries({
 	@NamedQuery(name = "User.findAll", query = "SELECT u FROM User u"),
 	@NamedQuery(name = "User.countByEmail", query = "SELECT COUNT(u) FROM User u WHERE u.email = :email")
@@ -22,6 +29,9 @@ public class User {
 	private String password;
 	private String firstName;
 	private String lastName;
+	
+	@OneToMany(mappedBy = "user", cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
+	private Set<UserGroup> userGroups = new HashSet<>();
 
 	public Integer getId() {
 		return id;
@@ -67,4 +77,16 @@ public class User {
 		this.lastName = lastName;
 	}
 
+	public Set<UserGroup> getUserGroups() {
+		return userGroups;
+	}
+
+	public void setUserGroups(Set<UserGroup> userGroups) {
+		this.userGroups = userGroups;
+	}
+	
+	public void addGroup(UserGroup userGroup) {
+		userGroups.add(userGroup);
+		userGroup.setUser(this);
+    }
 }
