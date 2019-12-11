@@ -1,4 +1,4 @@
-package quntear.dec.user;
+package quntear.dec.user.view;
 
 import java.util.Locale;
 import java.util.ResourceBundle;
