@@ -5,7 +5,7 @@
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_3.xsd">
 
 	<factory>
-		<exception-handler-factory>quntear.dec.user.DefaultExceptionHandler$Factory</exception-handler-factory>
+		<exception-handler-factory>quntear.dec.user.view.DefaultExceptionHandler$Factory</exception-handler-factory>
 	</factory>
 	
 	<application>
