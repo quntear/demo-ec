@@ -1,0 +1,14 @@
+<ui:composition xmlns:="http://www.w3.org/1999/xhtml"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+	<a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Demo EC</a> 
+	<ul class="navbar-nav px-3">
+		<li class="nav-item text-nowrap">
+			<h:form>
+				<h:commandLink action="#{logout.submit}" value="#{text['logout']}" styleClass="nav-link"/>
+			</h:form>
+		</li>
+	</ul>
+</ui:composition>

@@ -24,5 +24,9 @@
 		<error-code>500</error-code>
 		<location>/WEB-INF/errorpages/500.xhtml</location>
 	</error-page>
+	
+	<welcome-file-list>
+		<welcome-file>index</welcome-file>
+	</welcome-file-list>
 
 </web-app>

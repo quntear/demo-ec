@@ -1,0 +1,35 @@
+<ui:composition xmlns:="http://www.w3.org/1999/xhtml"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:jsf="http://xmlns.jcp.org/jsf"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+	
+	<ul class="nav flex-column">
+		<ui:repeat var="i" value="#{navigation.links}" varStatus="status">
+			<h:link outcome="#{i.outcome}" styleClass="nav-link #{i.active ? 'active' : ''}">#{i.label}</h:link>
+			<span class="sr-only" jsf:rendered="#{i.active}">(current)</span>
+		</ui:repeat>
+	</ul>
+
+	<!-- <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+		<span>Saved reports</span> <a
+			class="d-flex align-items-center text-muted" href="#"
+			aria-label="Add a new report"> <span
+			data-feather="plus-circle"></span>
+		</a>
+	</h6>
+	<ul class="nav flex-column mb-2">
+		<li class="nav-item"><a class="nav-link" href="#"> <span
+				data-feather="file-text"></span> Current month
+		</a></li>
+		<li class="nav-item"><a class="nav-link" href="#"> <span
+				data-feather="file-text"></span> Last quarter
+		</a></li>
+		<li class="nav-item"><a class="nav-link" href="#"> <span
+				data-feather="file-text"></span> Social engagement
+		</a></li>
+		<li class="nav-item"><a class="nav-link" href="#"> <span
+				data-feather="file-text"></span> Year-end sale
+		</a></li>
+	</ul> -->
+</ui:composition>

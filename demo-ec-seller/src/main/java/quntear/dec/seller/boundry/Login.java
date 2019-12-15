@@ -84,7 +84,7 @@ public class Login implements Serializable {
 			Messages.addWarn("login_failed", "Internal server error unable to complete your request");
 			this.email = null;
 		} else if (SUCCESS.equals(status)) {
-			return "welcome.html?faces-redirect=true";
+			return "dashboard?faces-redirect=true";
 		}
 		
 		return null;
