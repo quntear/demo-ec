@@ -1,10 +1,11 @@
 package quntear.dec.seller.boundry;
 
+import static javax.security.enterprise.AuthenticationStatus.NOT_DONE;
 import static javax.security.enterprise.AuthenticationStatus.SEND_CONTINUE;
 import static javax.security.enterprise.AuthenticationStatus.SEND_FAILURE;
-import static javax.security.enterprise.AuthenticationStatus.NOT_DONE;
 import static javax.security.enterprise.AuthenticationStatus.SUCCESS;
 
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.List;
 
@@ -66,7 +67,7 @@ public class Login implements Serializable {
 	@Ui @UiQualifier(id = {"email", "password"})
 	private List<UIInput> inputs;
 
-	public String submit() {
+	public String submit() throws IOException {
 		var request = (HttpServletRequest) externalContext.getRequest();
 		var response = (HttpServletResponse) externalContext.getResponse();
 		var credential = new UsernamePasswordCredential(email, password);
@@ -83,8 +84,8 @@ public class Login implements Serializable {
 			inputs.forEach(i -> i.setValid(false));
 			Messages.addWarn("login_failed", "Internal server error unable to complete your request");
 			this.email = null;
-		} else if (SUCCESS.equals(status)) {
-			return "dashboard?faces-redirect=true";
+		} else if (SUCCESS.equals(status)) { // Caller-Initiated Authentication
+			externalContext.redirect(externalContext.getRequestContextPath() + "/dashboard/");
 		}
 		
 		return null;
