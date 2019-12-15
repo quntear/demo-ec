@@ -1,11 +1,9 @@
-package quntear.dec.seller.boundry;
+package quntear.dec.seller;
 
 import static java.util.stream.Collectors.toSet;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
-import javax.security.enterprise.authentication.mechanism.http.CustomFormAuthenticationMechanismDefinition;
-import javax.security.enterprise.authentication.mechanism.http.LoginToContinue;
 import javax.security.enterprise.credential.Credential;
 import javax.security.enterprise.credential.UsernamePasswordCredential;
 import javax.security.enterprise.identitystore.CredentialValidationResult;
@@ -16,7 +14,6 @@ import quntear.dec.seller.UserPrincipal;
 import quntear.dec.seller.control.UserService;
 import quntear.dec.seller.model.UserGroup;
 
-@CustomFormAuthenticationMechanismDefinition(loginToContinue = @LoginToContinue(loginPage = "/login.html", errorPage = ""))
 @ApplicationScoped
 public class UserServiceIdentityStore implements IdentityStore {
 	
