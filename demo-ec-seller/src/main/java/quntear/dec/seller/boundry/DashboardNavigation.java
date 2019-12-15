@@ -32,7 +32,7 @@ public class DashboardNavigation {
 		
 		links.add(new DashboardNavigationOutcome("/dashboard/index", bundle.getString("dashboard"), view.getViewId().contains("dashboard/index")));
 		//links.add(new DashboardNavigationOutcome("Orders", "Orders", view.getViewId().contains("index")));
-		links.add(new DashboardNavigationOutcome("/dashboard/products/index", bundle.getString("products"), view.getViewId().contains("dashboard/products/index")));
+		links.add(new DashboardNavigationOutcome("/dashboard/products/index", bundle.getString("products"), view.getViewId().contains("dashboard/products")));
 		//links.add(new DashboardNavigationOutcome("Customers", "Customers", view.getViewId().contains("index")));
 		//links.add(new DashboardNavigationOutcome("Reports", "Reports", view.getViewId().contains("index")));
 	}
