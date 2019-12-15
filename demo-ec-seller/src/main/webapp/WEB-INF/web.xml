@@ -8,13 +8,25 @@
 		<res-ref-name>jsf/ProjectStage</res-ref-name>
 		<res-type>java.lang.String</res-type>
 	</resource-ref>
+	
+	<security-constraint>
+		<web-resource-collection>
+			<web-resource-name>Dashboard pages</web-resource-name>
+			<url-pattern>/dashboard/*</url-pattern>
+		</web-resource-collection>
+		<auth-constraint>
+			<role-name>SELLER</role-name>
+		</auth-constraint>
+	</security-constraint>
+	<security-role>
+		<role-name>SELLER</role-name>
+	</security-role>
 
 	<servlet>
 		<servlet-name>faces</servlet-name>
 		<servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
-
 	<servlet-mapping>
 		<servlet-name>faces</servlet-name>
 		<url-pattern>/javax.faces.resource/*</url-pattern>
