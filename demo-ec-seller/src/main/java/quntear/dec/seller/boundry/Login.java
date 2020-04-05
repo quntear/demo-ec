@@ -23,6 +23,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 
+import org.eclipse.microprofile.config.inject.ConfigProperty;
 import org.omnifaces.util.Messages;
 
 import quntear.dec.seller.view.Ui;
@@ -33,6 +34,10 @@ import quntear.dec.seller.view.UiQualifier;
 public class Login implements Serializable {
 	private static final long serialVersionUID = -3024883429735722538L;
 	
+	@Inject
+	@ConfigProperty(name = "google.recaptcha.sitekey")
+	private String recaptchaSiteKey;
+	
 	@NotEmpty
 	@Email
 	private String email;
@@ -40,6 +45,10 @@ public class Login implements Serializable {
 	@NotEmpty
 	private String password;
 	
+	public String getRecaptchaSiteKey() {
+		return recaptchaSiteKey;
+	}
+
 	public String getEmail() {
 		return email;
 	}

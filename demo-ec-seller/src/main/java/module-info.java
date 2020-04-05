@@ -14,4 +14,5 @@ module demoec.seller {
 	requires javax.servlet.api;
 	requires microprofile.config.api;
 	requires omnifaces;
+	requires java.json;
 }

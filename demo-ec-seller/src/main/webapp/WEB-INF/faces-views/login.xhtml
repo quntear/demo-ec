@@ -9,6 +9,9 @@
 	
 <ui:define name="head">
 <h:outputStylesheet name="/css/login.css" />
+
+<script src="https://www.google.com/recaptcha/api.js" async="true" defer="defer"></script>
+
 </ui:define>
 
 <ui:define name="content">
@@ -33,6 +36,10 @@
 			<div class="invalid-feedback">
 				<h:message for="password" id="m_password"/>
 			</div>
+		</div>
+		
+		<div class="mb-3">
+			<div class="g-recaptcha" data-sitekey="#{login.recaptchaSiteKey}"></div>
 		</div>
 		
 		<div class="mb-3">
